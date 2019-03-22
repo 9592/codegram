@@ -1,5 +1,4 @@
 from django.urls import path
-
 from codegram.users.views import (
     user_list_view,
     user_redirect_view,
@@ -14,3 +13,4 @@ urlpatterns = [
     path("~update/", view=user_update_view, name="update"),
     path("<str:username>/", view=user_detail_view, name="detail"),
 ]
+

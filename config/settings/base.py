@@ -38,10 +38,11 @@ USE_TZ = True
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
-DATABASES = {
-    'default': env.db('DATABASE_URL', default='postgres://localhost/codegram'),
+DATABASES = { 
+     'default': env.db('DATABASE_URL', default='mssql://code:!newhmart0214@code-test.cegijpfu1s4m.us-east-1.rds.amazonaws.com:1433/codegram'),
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
+
 
 # URLS
 # ------------------------------------------------------------------------------
@@ -72,6 +73,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     'codegram.users.apps.UsersAppConfig',
     # Your stuff: custom apps go here
+    'codegram.images.apps.ImagesConfig',
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

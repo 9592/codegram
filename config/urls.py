@@ -1,5 +1,7 @@
 from django.conf import settings
-from django.urls import include, path
+#jango 2.0 에서는 url 패턴 사용하지 않고 path 사용 
+#from django.conf.urls import url,include as conf_include
+from django.urls import include, path 
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import TemplateView
@@ -18,8 +20,15 @@ urlpatterns = [
     path(
         "users/",
         include("codegram.users.urls", namespace="users"),
-    ),
-    path("accounts/", include("allauth.urls")),
+    ),    
+    path("accounts/", include("allauth.urls")),    
+    path(
+        "images/", 
+        include("codegram.images.urls")),    
+    
+    #jango 2.0 version Path 로 URL 경로 지정
+    #url(r"^images/", conf_include("codegram.images.urls", namespace = "images")),
+
     # Your stuff: custom urls includes go here
 ] + static(
     settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
